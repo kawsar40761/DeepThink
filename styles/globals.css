@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neutral-50: #fafafa;
+  --neutral-100: #f5f5f5;
+  --neutral-200: #e5e5e5;
+  --neutral-300: #d4d4d4;
+  --neutral-400: #a3a3a3;
+  --neutral-500: #737373;
+  --neutral-600: #525252;
+  --neutral-700: #404040;
+  --neutral-800: #262626;
+  --neutral-900: #171717;
+  --neutral-950: #0a0a0a;
+
+  --accent-50: #eff6ff;
+  --accent-100: #dbeafe;
+  --accent-200: #bfdbfe;
+  --accent-300: #93c5fd;
+  --accent-400: #60a5fa;
+  --accent-500: #3b82f6;
+  --accent-600: #2563eb;
+  --accent-700: #1d4ed8;
+  --accent-800: #1e40af;
+  --accent-900: #1e3a8a;
+
+  --background: #ffffff;
+  --foreground: var(--neutral-900);
+  --muted: var(--neutral-100);
+  --muted-foreground: var(--neutral-500);
+
+  --shadow-subtle: 0 1px 2px 0 rgb(0 0 0 / 0.02);
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.03);
+  --shadow-elevated: 0 4px 6px -1px rgb(0 0 0 / 0.04), 0 2px 4px -2px rgb(0 0 0 / 0.03);
+  --shadow-modal: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.02);
+}
+
+.dark {
+  --neutral-50: #0a0a0a;
+  --neutral-100: #171717;
+  --neutral-200: #262626;
+  --neutral-300: #404040;
+  --neutral-400: #525252;
+  --neutral-500: #737373;
+  --neutral-600: #a3a3a3;
+  --neutral-700: #d4d4d4;
+  --neutral-800: #e5e5e5;
+  --neutral-900: #f5f5f5;
+  --neutral-950: #fafafa;
+
+  --accent-50: #1e3a8a;
+  --accent-100: #1e40af;
+  --accent-200: #1d4ed8;
+  --accent-300: #2563eb;
+  --accent-400: #3b82f6;
+  --accent-500: #60a5fa;
+  --accent-600: #93c5fd;
+  --accent-700: #bfdbfe;
+  --accent-800: #dbeafe;
+  --accent-900: #eff6ff;
+
+  --background: #0a0a0a;
+  --foreground: var(--neutral-900);
+  --muted: var(--neutral-100);
+  --muted-foreground: var(--neutral-400);
+}
+
+*,
+*::before,
+*::after {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-300);
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--neutral-600);
+}
+
+::selection {
+  background-color: var(--accent-200);
+  color: var(--accent-900);
+}
+
+.dark ::selection {
+  background-color: var(--accent-700);
+  color: var(--accent-50);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-500);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes accordionDown {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordionUp {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.2s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+.animate-accordion-down {
+  animation: accordionDown 0.3s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordionUp 0.3s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
